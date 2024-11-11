@@ -1,9 +1,10 @@
 /* Stylesheet created by Niklas Scherz */
 /* Colors by coolors.co */
 
+/*Farbedklaration und Hintergrundbild*/
 :root {
-    /*background-image: url(images/Background.webp); */
-    background-color: gray;
+    background-image: url(images/Background.webp);
+    /* background-color: gray; */
     background-size: cover;
     --rose: #f72585ff;
     --fandango: #b5179eff;
@@ -17,39 +18,82 @@
     --vivid-sky-blue: #4cc9f0ff;
     --light:  #eee;
 }
-
 img {   
     max-width: 97%;
     height: auto;
     display: block;
     margin: auto;
 }
-
-
 *{
     font-family: 'Comic Sans MS', 'Trebutchet MS', monospace,;
-    font-size: 2.3vh;
+    font-size: 1rem;
 }
-
 main { 
+    padding-top: 2%;
     display: flex;
     justify-content: center;
-    height: 84vh;
     align-items: center;
+    overflow: hidden;
+    flex-direction: row;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 128, 128, 0.8); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; 
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+.popup-content {
+    background-color: var(--palatinate-blue);
+    border: 0.5vh solid black;
+    padding: 5%;
+    font-size: xx-large;
+}
+.popup div div {
+    font-size: larger;
+    font: bold;
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+    
+}
+#replayButton {
+background-color: var(--grape);
+font-size: larger;
+padding: 1vh;
+border: 0.2vh solid black;
+}
+#replayButton:hover {
+    background-color: var(--fandango);
+    cursor: pointer;
 }
 
+
+/* Header und Fußzeile */
 .div-header{
     background: linear-gradient(to top, #cc33ff 0%, #6600ff 100%);
-    width: 60vh;
-    height: 10vh;
+    width: 60%;
+    height: 10%;
     margin: auto;
     border-style: groove;
     border-color: var(--grape);
-    border-width: 2vh;
+    border-width: 0.5rem;
     text-align: center;
-    font: 'Comic Sans MS';
 }
-
+.div-header div {
+    font-size: 2rem;
+    font: bold;
+}
 .div-footer{
     background: linear-gradient(to bottom, #cc33ff 0%, #6600ff 100%);
     padding: 1vh;
@@ -66,21 +110,24 @@ main {
     
 }
 
+
+/* Spielfeld und Controlfeld*/
 .custom-fieldset {
     width: 60vh;
 
 }
-
 .control-fieldset {
     width: 35vh;
+   
 
 }
+
+
 
 .row {
     float: left;
     width: 100%;
 }
-
 .row div {
     width: calc(100% / 7);
     float: left;
@@ -89,17 +136,14 @@ main {
 .square-holder {
     position: relative;
 }
-
 .square-holder div{
     width: 100%;
 }
 
 .square-sizer {
     padding-top: 100%;
-    width: 5%;
-    height: 5%;
+    
 }
-
 .square-content {
     position: absolute;
     top: 0;
@@ -108,35 +152,27 @@ main {
     bottom: 0;
 }
 
+.emptycell {
+
+}
 .cell {
     background-color: var(--zaffre);
 }
-
 .path {
     background-color: var(--vivid-sky-blue);
 }
-
 .wall {
     background-color: var(--fandango);
 }
-
 .player {
-    background-color: var(--vivid-sky-blue);
-    background-image: url(images/css_sprites.svg);
-    background-repeat: no-repeat;
-    background-size: 300% 200%;
-    background-position: 0% 0%;
-    width: 100%;
-    height: 100%;
+    
 }
-
 .goal {
 
     background-color: var(--vivid-sky-blue);
-    background-image: url(images/css_sprites.png);
-    background-repeat: no-repeat;
-    background-position: -169px -87px;
-   
+    background-image: url(images/sprite.png);
+    background-position: 8px -64px;
+  
 }
 
 #mediumButton {
@@ -148,7 +184,6 @@ main {
     border: 0.3vh solid var(--dark-blue);
     background: linear-gradient(to top, #cc33ff 0%, #6600ff 100%);
 }
-
 #smallButton {
     width: 30%;
     padding: 1em;
@@ -159,7 +194,6 @@ main {
     background: linear-gradient(to top, #cc33ff 0%, #6600ff 100%);
 
 }
-
 #largeButton {
     width: 30%;
     padding: 1em;
@@ -169,7 +203,6 @@ main {
     border: 0.3vh solid var(--dark-blue);
     background: linear-gradient(to top, #cc33ff 0%, #6600ff 100%);
 }
-
 #largeButton:hover {
     background: linear-gradient(to top, #dd75ff 0%, #9955ff 100%);
     cursor: pointer;
@@ -182,7 +215,6 @@ main {
     background: linear-gradient(to top, #dd75ff 0%, #9955ff 100%);
     cursor: pointer;
 }
-
 .sizebar {
     padding: 2%;
     text-align: center;
@@ -196,12 +228,79 @@ main {
     background-color: var(--fandango);
 }
 
-.buttonup {
-    width: 33%;
-    height: 33%;
-    background-image: url(images/css_sprites.svg);
-    background-repeat: no-repeat;
-    background-position: -182px -10px;
+#Up {
+    top:0;
+    background-color: #9955ff;
+    border: 1vh solid black;
+}
+
+#Down {
+    bottom:0;
+    background-color: #9955ff;
+    border: 1vh solid black;
+}
+
+#Right {
+    right:0;
+    background-color: #9955ff;
+    border: 1vh solid black;
+}
+
+#Left {
+    left:0;
+    background-color: #9955ff;
+    border: 1vh solid black;
+}
+
+#Up:hover {
+    top:0;
+    background-color: #c8a4ff;
+    border: 1vh solid black;
+    cursor: pointer;
+
+}
+
+#Down:hover {
+    bottom:0;
+    background-color: #c8a4ff;
+    border: 1vh solid black;
+    cursor: pointer;
+
+}
+
+#Right:hover {
+    right:0;
+    background-color: #c8a4ff;
+    border: 1vh solid black;
+    cursor: pointer;
+
+}
+
+#Left:hover {
+    left:0;
+    background-color: #c8a4ff;
+    border: 1vh solid black;
+    cursor: pointer;
+
+}
+
+#controlplayer {
+    background-color: #9955ff;
+    border: 0.2vh solid black;
+
+}
+
+.controlrow {
+    width: 100%;
+    float: left;
+}
+.controlrow div {
+    width: calc(100% / 3);
+    float: left;
+}
+legend {
+    background-color: var(--chefchaouen-blue);
+    border: 0.1rem solid black;
 }
 
 
@@ -210,9 +309,59 @@ main {
 
 
 
+/* Mobile Ansicht */
+@media (max-width: 500px) {
+    .div-header {
+        width: 50% !important;
+        padding: 0.2rem;
+    }
+    .div-header div {
+        font-size: 0.8rem;
+        font: bold;
+        padding: 0.05 rem;
+    }
+    .custom-fieldset{
+        width: 80% !important; 
+        margin: 1% auto; 
+    }
 
+    .control-fieldset {
+        width: 40%;
 
+    }
 
+    .div-header, .div-footer {
+        width: 70%; 
+    }
 
+    #mediumButton, #smallButton, #largeButton {
+        width: 30%; 
+        font-size: smaller;
+        padding: 0.5rem;    
+    }
+
+    main {
+        padding-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        flex-direction: column !important;
+    }
+    
+}
+
+@media (max-height: 500px) {
+    .div-header div {
+        font-size: 90%;
+    }
+    .div-header {
+        width: 20%;
+    }
+    * {
+        font-size: 90%;
+    }
+
+}
 
 
